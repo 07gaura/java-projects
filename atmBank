@@ -1,0 +1,87 @@
+import java.util.Scanner;
+/**
+ * Write a description of class atmBank here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class atmBank
+{   private int money = 1000;
+    private void Deposit(){
+        System.out.println("Enter the Amount");
+        Scanner input = new Scanner(System.in);
+        int m = input.nextInt();
+        money = money+m;
+        System.out.println("You Deposited" + m);
+        options();
+    }
+    
+    private void WithDraw(){
+        Scanner input = new Scanner(System.in);
+        int m = input.nextInt();
+        money = money - m;
+        System.out.println("You withdrawed" + m);
+        options();
+    }
+    
+    private void CheckBalance(){
+        System.out.println("Your Account Balance is" +money);
+        options();
+    }
+    
+    private void exit(){
+        main();
+    }
+    
+    private void options(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Select the options");
+        System.out.println("1 - Deposit");
+        System.out.println("2 - WithDraw");
+        System.out.println("3 - Check Balance");
+        System.out.println("4 - Exit");
+        int option = input.nextInt();
+        switch(option){
+            case 1:
+                Deposit();
+                break;
+            case 2:
+                WithDraw();
+                break;
+            case 3:
+                CheckBalance();
+                break;
+            case 4:
+                exit();
+                break;
+            default:
+                System.out.println("Pressed wrong button");
+        }
+    }
+    
+    public static void main(){
+        
+        atmBank obj = new atmBank();
+            
+        System.out.print("Enter Your Account No");
+        Scanner scan = new Scanner(System.in);
+        int Accountno = scan.nextInt();
+        System.out.print("Enter Your password");
+        int password = scan.nextInt();
+        
+        int useracc = 1234567890;
+        int pass = 123456;
+        
+        if(Accountno == useracc){
+            if(pass == password){
+                obj.options();
+            }
+            else{
+                System.out.println("Password is wrong");             
+            }
+        }
+        else{
+            System.out.println("Account Number You Entered is Wrong");
+        }
+    }
+}
